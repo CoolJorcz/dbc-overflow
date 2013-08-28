@@ -1,0 +1,11 @@
+<%= form_for @question do |q| %>
+  <% if @question.errors.any? %>
+    <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li style="color:red;"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= q.text_area :question_text, :placeholder => "Enter your question" %><br />
+  <%= q.submit %>
+<% end %>
