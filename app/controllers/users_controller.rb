@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 		user = User.create(params[:user])
 
 		unless user.id.nil?
-			session[user.id]
+			current_user = session[user.id]
 			redirect_to user_url(user)
 		else
 			redirect_to new_user_url
