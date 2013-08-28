@@ -4,10 +4,10 @@ class SessionsController < ApplicationController
   def start
     @user = User.find_by_email(params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
-      current_user = @user
-      redirect_to user_url(current_user)
+      session[:user_id]= @user
+      redirect_to user_url(session[:user_id])
     else
-      redirect_to new_session_url(@user)
+      render 'new'
     end
   end
 
