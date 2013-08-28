@@ -1,0 +1,13 @@
+%p Sign In!
+= form_for @user, url: start_session_url do |f|
+	- if @user.errors.any?
+		%h2= pluralize(@user.errors.count, "error")
+		%ul
+			- @user.errors.full_messages.each do |message|
+				%li= message
+
+	.field= f.label :email
+	.field= f.text_field :email
+	.field= f.label :password
+	.field= f.password_field :password
+	.field= f.submit
