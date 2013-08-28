@@ -1,10 +1,16 @@
 = form_for @user do |f| 
- .field= f.label :username
- .field= f.text_field :username
- .field= f.label :email
- .field= f.text_field :email
- .field= f.label :password
- .field= f.password_field :password
- .field= f.label :password_confirmation
- .field= f.password_field :password_confirmation
- .field= f.submit
+	- if @user.errors.any?
+		%h2= pluralize(@user.errors.count, "error")
+		%ul
+			- @user.errors.full_messages.each do |message|
+				%li= message 
+
+	.field= f.label :username
+	.field= f.text_field :username
+	.field= f.label :email
+	.field= f.text_field :email
+	.field= f.label :password
+	.field= f.password_field :password
+	.field= f.label :password_confirmation
+	.field= f.password_field :password_confirmation
+	.field= f.submit
