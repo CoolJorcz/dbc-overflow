@@ -26,10 +26,14 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+gem 'faker'
+
 group :test do
-  gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 # To use ActiveModel has_secure_password
