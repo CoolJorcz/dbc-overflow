@@ -58,6 +58,8 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     ffi (1.9.0)
+    haml (4.0.3)
+      tilt
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -153,6 +155,7 @@ DEPENDENCIES
   debugger
   factory_girl_rails
   faker
+  haml
   jquery-rails
   launchy
   pg
