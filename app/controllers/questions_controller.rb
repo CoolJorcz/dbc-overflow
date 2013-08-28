@@ -34,7 +34,6 @@ class QuestionsController < ApplicationController
       redirect_to action: 'index'
       # redirect_to question_url(@question)
     else
-      debugger
       @errors = @question.errors
       render 'edit'
     end
