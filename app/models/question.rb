@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessible :question_text
+  attr_accessible :question_text, :title
 
   belongs_to :user
   has_many   :answers

@@ -6,6 +6,7 @@
       <% end %>
     </ul>
   <% end %>
-  <%= q.text_area :question_text, :placeholder => "Enter your question" %><br />
+  <%= q.text_field :title, :placeholder => "Enter a title" %>
+  <%= q.text_area :question_text, :placeholder => "Enter your question" %>
   <%= q.submit %>
 <% end %>

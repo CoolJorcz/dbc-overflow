@@ -1,4 +1,6 @@
-  <h2>@question.question_text</h2>
+  <h2><%= @question.title %></h2>
+  <h3><%= @question.question_text %></h3>
+
 <ul>
   <% @answers.each do |answer| %>
    <li><%= answer.answer_text %></li>

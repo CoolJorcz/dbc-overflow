@@ -22,4 +22,22 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = []
   end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update_attributes(params[:question])
+      redirect_to action: 'index'
+      # redirect_to question_url(@question)
+    else
+      debugger
+      @errors = @question.errors
+      render 'edit'
+    end
+  end
+
 end
