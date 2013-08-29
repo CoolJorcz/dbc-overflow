@@ -11,8 +11,12 @@ class AnswersController < ApplicationController
     @answer.user_id = session[:user_id]
     if @answer.save
       @question.answers << @answer
+      redirect_to question_url(@question)
+    else
+      @errors = @answer.errors
+      render 'new'
     end
-    redirect_to question_url(@question)
+    
   end
 
   def edit
@@ -23,9 +27,12 @@ class AnswersController < ApplicationController
   def update
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
-    @answer.update_attributes(params[:answer])
-    @answer.save
-    redirect_to question_url(@question)
+    if @answer.update_attributes(params[:answer])
+      redirect_to question_url(@question)
+    else
+      @errors = @answer.errors
+      render 'edit'
+    end
   end
 
 end
