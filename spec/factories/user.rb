@@ -5,10 +5,6 @@ FactoryGirl.define do
     email
     password "12345"
 
-    factory :admin do
-      admin true
-    end
-
   end
 
 end

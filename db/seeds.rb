@@ -28,3 +28,8 @@ end
 25.times do
 	make_question
 end
+
+
+Question.all.each do |question|
+  question.answers.create(answer_text: "This is my answer text")
+end
