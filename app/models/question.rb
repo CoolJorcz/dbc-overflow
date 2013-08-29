@@ -6,5 +6,6 @@ class Question < ActiveRecord::Base
   has_many   :comments, as: :commentable
   has_many   :votes,    as: :votable
 
-  validates :question_text, presence: true
+  validates_presence_of :question_text
+  validates_presence_of :title
 end

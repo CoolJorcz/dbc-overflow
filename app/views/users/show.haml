@@ -1,5 +1,6 @@
 %p= @user.username
 %p= @user.email
 
-= if session[:user_id]
-  = link_to "Log Out", clear_session_url, method: :delete
+- if session[:user_id]
+  = link_to "Log Out", logout_path
+  = link_to "Back to Questions", questions_path, method: :get
