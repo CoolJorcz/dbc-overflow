@@ -1,7 +1,7 @@
   <h2><%= @question.title %></h2><strong><%= @question.user.username if @question.user.present? %></strong>
   <h3><%= @question.question_text %></h3>
 
-<ul>
+<ul id= "answers">
   <% @question.answers.each do |answer| %>
 
    <li>
@@ -17,3 +17,5 @@
   <% end %>
 
 </ul>
+
+  <%= link_to "Add Answer", new_question_answer_url(@question), :id => "add-answer" %>
