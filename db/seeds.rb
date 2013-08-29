@@ -19,3 +19,12 @@ end
 25.times do 
 	make_user 
 end
+
+def make_question
+	Question.create(title: Faker::Company.bs,
+									question_text: Faker::Lorem.sentence)
+end
+
+25.times do
+	make_question
+end
