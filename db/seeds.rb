@@ -16,8 +16,8 @@ end
 
 
 
-25.times do 
-	make_user 
+25.times do
+	make_user
 end
 
 def make_question
@@ -25,8 +25,8 @@ def make_question
 									question_text: Faker::Lorem.sentence)
 end
 
-25.times do
-	make_question
+User.all.each do |user|
+  user.questions <<	make_question
 end
 
 

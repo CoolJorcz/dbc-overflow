@@ -6,5 +6,4 @@ describe Answer do
   it { should belong_to (:user) }
   it { should have_many(:commentables) }.through(:comments) }
   it { should have_many(:voteables).through(:votes) }
-
 end
