@@ -1,12 +1,12 @@
 DbcOverflow::Application.routes.draw do
-  
+
   resources :users
 
   #resources :sessions
    post '/sessions', :to => 'sessions#start', :as => 'start_session'
    get '/sessions/new', :to => 'sessions#new', :as => 'new_session'
    match 'logout', :to => "sessions#delete", :as => 'logout'
-   # delete '/sessions/:id', :to => 'sessions#clear', :as => 'clear_session' 
+   # delete '/sessions/:id', :to => 'sessions#clear', :as => 'clear_session'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -14,8 +14,13 @@ DbcOverflow::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
   resources :questions, except: [:destroy] do
-    resources :answers
+    resources :comments
+
+    resources :answers do
+      resources :comments
+    end
   end
+
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
