@@ -34,6 +34,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'ZenTest'
+  gem "autotest-fsevent"
 end
 
 # To use ActiveModel has_secure_password

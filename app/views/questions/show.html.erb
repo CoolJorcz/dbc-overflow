@@ -1,8 +1,8 @@
-  <h2><%= @question.title %></h2>
+  <h2><%= @question.title %></h2><strong><%= @question.user.username if @question.user.present? %></strong>
   <h3><%= @question.question_text %></h3>
 
 <ul>
-  <% @answers.each do |answer| %>
+  <% @question.answers.each do |answer| %>
    <li><%= answer.answer_text %></li>
   <% end %>
 
