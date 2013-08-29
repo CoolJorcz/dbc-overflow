@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
-  def clear
+  def delete
     session.clear
     redirect_to root_url
   end

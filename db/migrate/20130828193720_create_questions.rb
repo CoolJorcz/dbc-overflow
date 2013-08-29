@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.references :user
       t.references :commentable, polymorphic: true
-      t.text       :question_text
+      t.string       :question_text, null: false
       t.timestamps
     end
   end
