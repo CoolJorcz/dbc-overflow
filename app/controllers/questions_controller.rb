@@ -8,12 +8,11 @@ class QuestionsController < ApplicationController
   end
 
 
-#question.user_id = session[:user_id]
   def create
-   @question = Question.new(params[:question])
-
+   @question= Question.new(params[:question])
+   @question.user_id = session[:user_id]
    if @question.save
-      render 'index'
+      redirect_to "index"
    else
       @errors = @question.errors
       render 'new'
@@ -22,7 +21,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @answers = []
   end
 
   def edit
