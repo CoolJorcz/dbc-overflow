@@ -2,10 +2,14 @@ DbcOverflow::Application.routes.draw do
   
   resources :users
 
-  #resources :sessions
-   post '/sessions', :to => 'sessions#start', :as => 'start_session'
-   get '/sessions/new', :to => 'sessions#new', :as => 'new_session'
-   delete '/sessions/:id', :to => 'sessions#clear', :as => 'clear_session' 
+  # resources :sessions
+  get '/sessions', to: => 'sessions#index', :as => 'sessions'
+  post '/sessions', :to => 'sessions#create'
+  get '/sessions/new', :to => 'sessions#new', :as => 'new_session'
+  get '/sessions/:id/edit', :to => 'sessions#edit', :as => 'edit_session'
+  get '/sessions/:id', :to => 'sessions#show', :as => 'session'
+  put 'sessions/:id', :to => 'sessions#update'
+  delete '/sessions/:id', :to => 'sessions#destroy' 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
