@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 	def create
 		user = User.create(params[:user])
 
-		unless user.id.nil?
-			current_user = session[user.id]
-			redirect_to user_url(user)
+		if user.persisted?
+			session[:user_id] = user.id
+			redirect_to user_url(session[:user_id])
 		else
 			redirect_to new_user_url
 		end
@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@current
 	end
 
 	def update

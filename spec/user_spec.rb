@@ -1,26 +1,13 @@
+require 'spec_helper'
+
 describe User do
-  let (:user) { User.new }
+  it { should validate_presence_of(:username) }
+  it { should validate_presence_of(:password_digest) }
+  it { should validate_presence_of (:email)}
+  it { should have_many(:answers) }
+  it { should have_many(:questions)
+  it { should have_many(:commentables) }.through(:comments) }
+  it { should have_many(:voteables).through(:votes) }
 
-  context "when name is empty" do
-    it "should not be valid" do
-      expect(user.valid?).to be_false
-    end
-
-    it "should not save" do
-      expect(user.save).to be_false
-    end
-  end
-
-  context "when name is not empty" do
-    let (:user) { User.new(:name => "Alex") }
-
-    it "should be valid" do
-      expect(user.valid?).to be_true
-    end
-
-    it "should save" do
-      expect(user.save).to be_true
-    end
-  end
 end
 

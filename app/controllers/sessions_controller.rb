@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id]= @user
       redirect_to user_url(session[:user_id])
     else
+      @user = User.new
       render 'new'
     end
   end
