@@ -1,0 +1,15 @@
+# params
+#   @answer
+#   @comments
+
+<ul>
+  <li>
+      answer.answer_text
+  </li>
+
+  <li>
+      <!-- passing in @comments into partial -->
+      <%= render template: "comments/show", local: {comments: answer_comments} %>
+  </li>
+</ul>
+

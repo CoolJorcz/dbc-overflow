@@ -18,8 +18,8 @@
 end
 
 # Give each user a question
-User.all.each do |user|
-  user.questions <<	Question.create(title: Faker::Company.bs, question_text: Faker::Lorem.sentence)
+User.all.each_with_index do |user, index|
+  user.questions <<	Question.create(title: "Question Title #{index + 1}", question_text: "Question Text #{index + 1}")
 end
 
 #

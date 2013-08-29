@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
       @errors = @answer.errors
       render 'new'
     end
-    
+
   end
 
   def edit
@@ -34,5 +34,4 @@ class AnswersController < ApplicationController
       render 'edit'
     end
   end
-
 end
