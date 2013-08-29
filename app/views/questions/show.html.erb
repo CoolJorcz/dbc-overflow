@@ -9,9 +9,13 @@
 <p><%= @question.question_text %></p>
 
 <ul>
-  <% @question.comments.each do |comment| %>
-    <li class="comment"><%= comment.body %></li>
-  <% end %>
+  <li>
+    <ul>
+    <% @question.comments.each do |comment| %>
+      <li class="comment"><%= comment.body %></li>
+    <% end %>
+    </ul>
+  </li>
 </ul>
 
 <ul>
