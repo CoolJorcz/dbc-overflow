@@ -15,4 +15,17 @@ class AnswersController < ApplicationController
     redirect_to question_url(@question)
   end
 
+  def edit
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @answer.update_attributes(params[:answer])
+    @answer.save
+    redirect_to question_url(@question)
+  end
+
 end
