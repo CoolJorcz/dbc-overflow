@@ -8,12 +8,7 @@
 
   <%= link_to "Add Answer", '#', :id => "add-answer" %>
 
-<ul id= "answers">
-  <% @question.answers.each do |answer| %>
-   <li><%= answer.answer_text %></li>
-  <% end %>
-
-</ul>
+  <%= render partial: "/answers/answer" %> 
 
   <%= link_to "Add Answer", new_question_answer_url(@question), :id => "add-answer" %>
 >>>>>>> finished micro-challenge
