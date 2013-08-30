@@ -12,7 +12,6 @@ class QuestionsController < ApplicationController
    puts params.inspect + "*"*800
    @question.tag_namez = params[:question][:tag_namez]
    puts @question.tag_namez
-   puts "WE GOT THIS FAR"
    @question.user_id = session[:user_id]
    if @question.save
       redirect_to "index"
