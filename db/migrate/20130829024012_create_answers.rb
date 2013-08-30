@@ -3,7 +3,6 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.string :answer_text, null: :false
       t.references :user
-      t.references :commentable, polymorphic: true
       t.references :question
       t.timestamps
     end
