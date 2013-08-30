@@ -9,9 +9,14 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = Answer.new(params[:answer])
     @answer.user_id = session[:user_id]
+
     if @answer.save
       @question.answers << @answer
-      redirect_to question_url(@question)
+      if request.xhr?
+        render json: @answer
+      else
+        redirect_to question_url(@question)
+      end
     else
       @errors = @answer.errors
       render 'new'
