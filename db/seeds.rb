@@ -45,3 +45,17 @@ Answer.all.each_with_index do |answer, index|
   User.find(index + 1).comments << comment
 end
 
+# add an up vote to each question
+Question.all.each do |q|
+  v = Vote.create(choice: true)
+  User.find(rand(1..User.all.size)).votes << v  # user who upvoted associated to vote
+  q.votes << v                            # question voted on associated to vote
+end
+
+# add an down vote to each question
+Answer.all.each do |a|
+  v = Vote.create(choice: false)
+  User.find(rand(1..User.all.size)).votes << v  # user who upvoted associated to vote
+  a.votes << v                            # answer voted on associated to vote
+end
+
