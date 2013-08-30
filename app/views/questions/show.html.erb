@@ -1,21 +1,7 @@
   <h2><%= @question.title %></h2><strong><%= @question.user.username if @question.user.present? %></strong>
   <h3><%= @question.question_text %></h3>
 
-<ul id= "answers">
-  <% @question.answers.each do |answer| %>
 
-   <li>
-      <ul>
-        <li> <%= answer.answer_text %>
-            <ul>
-              <li></li>
-
-            </ul>
-        </li>
-      </ul>
-    </li>
-  <% end %>
-
-</ul>
+  <%= render partial: "/answers/answer" %> 
 
   <%= link_to "Add Answer", new_question_answer_url(@question), :id => "add-answer" %>
