@@ -1,0 +1,11 @@
+<ul id= "answers">
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.answer_text %></li>
+  <% end %>
+</ul>
+
+<div id="new-answer">
+  <h2>Create a New Answer</h2>
+
+  <%= render 'answers/form', locals: {answer: @question.answers.new}, layout: false %>
+</div>
