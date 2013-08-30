@@ -7,7 +7,7 @@ $(function() {
     $('#new-answer').show();
   });
     
-  $('form').on("submit", function(event){
+  $('#add-answer').on("submit", function(event){
     event.preventDefault();
 
     var url = $(this).attr('action');
