@@ -29,6 +29,7 @@ end
 gem 'faker'
 
 group :test do
+  gem 'poltergeist'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'capybara'
