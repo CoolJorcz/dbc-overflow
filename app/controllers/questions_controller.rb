@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    redirect_to action: 'index' if session[:user_id].nil?
     @question = Question.new
   end
 
