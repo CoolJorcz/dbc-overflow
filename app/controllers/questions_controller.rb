@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
    @question.tag_namez = params[:question][:tag_namez]
    puts @question.tag_namez
    @question.user_id = session[:user_id]
-   if @question.save
+   if !session[:user_id].nil? && @question.save
       redirect_to "index"
    else
       @errors = @question.errors
