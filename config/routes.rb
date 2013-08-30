@@ -6,7 +6,6 @@ DbcOverflow::Application.routes.draw do
    post '/sessions', :to => 'sessions#start', :as => 'start_session'
    get '/sessions/new', :to => 'sessions#new', :as => 'new_session'
    match 'logout', :to => "sessions#delete", :as => 'logout'
-   # delete '/sessions/:id', :to => 'sessions#clear', :as => 'clear_session'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

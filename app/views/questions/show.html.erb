@@ -1,9 +1,3 @@
-  # params
-  #  * @question
-  #  *    @question_comment
-  #  *  @answers
-  #  *    @answer_comment
-
   <h2><%= @question.title %></h2><strong><%= @question.user.username if @question.user.present? %></strong>
   <h3><%= @question.question_text %></h3>
 
