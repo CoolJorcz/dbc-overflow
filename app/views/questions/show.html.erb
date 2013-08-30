@@ -3,7 +3,17 @@
 
 <ul>
   <% @question.answers.each do |answer| %>
-   <li><%= answer.answer_text %></li>
+
+   <li>
+      <ul>
+        <li> <%= answer.answer_text %>
+            <ul>
+              <li></li>
+
+            </ul>
+        </li>
+      </ul>
+    </li>
   <% end %>
 
 </ul>
