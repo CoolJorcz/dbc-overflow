@@ -1,4 +1,5 @@
 class Tag < ActiveRecord::Base
-  belongs_to :question
+  has_many :taggings, dependent: :destroy
+  has_many :questions, through: :taggings
 
 end

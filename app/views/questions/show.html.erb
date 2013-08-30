@@ -1,6 +1,8 @@
   <h2><%= @question.title %></h2><strong><%= @question.user.username if @question.user.present? %></strong>
   <h3><%= @question.question_text %></h3>
-
+    <% @question.tags.each do |tag| %>
+      <li><%= tag.tagname %> </li>
+      <% end %>
 
   <%= render partial: "/answers/answer" %> 
 

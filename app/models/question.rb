@@ -1,28 +1,35 @@
 
 class Question < ActiveRecord::Base
-  attr_accessible :question_text, :title
-  attr_accessor :tags
+  attr_accessible :question_text, :title, :tag_namez
+  attr_accessor :tag_namez
+
   belongs_to :user
   has_many   :answers
   has_many   :comments, as: :commentable
   has_many   :votes,    as: :votable
+  has_many :taggings, dependent: :destroy
+  has_many   :tags, through: :taggings
+
 
   validates_presence_of :question_text
   validates_presence_of :title
 
+  after_save :assign_tags
 
-  def tags=(tag_list)
-    array_of_tags = tags.split(', ').uniq
-    array_of_tags.each do |tag|
-      newtag = Tag.find_or_create_by_title(tag)
-      self.tag << newtag unless existing_post_tags.include?(newtag.id)
-    end
+  def tag_name
+    @tags = self.tag_namez.split(', ')
+    string = ''
+    @tags.each {|tag| string << tag.tagname + ","}
+    string.chop 
   end
 
-  def tags
-    @tags = self.tags
-    string = ''
-    @tags.each {|tag| string << tag.title + ","}
-    string = string.chop 
+  private
+
+  def assign_tags
+    array_of_tags = tag_namez.split(', ').uniq
+    array_of_tags.each do |tag|
+      newtag = Tag.find_or_create_by_tagname(tag)
+      self.tags << newtag unless taggings.include?(newtag.id)
+    end
   end
 end

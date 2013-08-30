@@ -8,7 +8,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-   @question= Question.new(params[:question])
+   @question = Question.new(params[:question])
+   puts params.inspect + "*"*800
+   @question.tag_namez = params[:question][:tag_namez]
+   puts @question.tag_namez
+   puts "WE GOT THIS FAR"
    @question.user_id = session[:user_id]
    if @question.save
       redirect_to "index"
@@ -31,7 +35,6 @@ class QuestionsController < ApplicationController
 
     if @question.update_attributes(params[:question])
       redirect_to action: 'index'
-      # redirect_to question_url(@question)
     else
       @errors = @question.errors
       render 'edit'
