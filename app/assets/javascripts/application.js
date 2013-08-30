@@ -30,17 +30,14 @@ $(document).ready(function (){
 
         var url = $(this).attr('action');
         var data = $('form').serialize();
-        var answer = $("textarea[name='answer[answer_text]']").val();
-        $('#answers').append(answer);
 
-        console.log(answer)
         $.post(url, data, function(server_response){
-          $('#answers').append
 
+          $('#answers').append("<li>" +server_response.answer_text+"</li>")
   
         });
-
-        $('#new_answer').remove();
+        $('#new-answer').remove();
+        $('#add-answer').add();
       });
 
     });
