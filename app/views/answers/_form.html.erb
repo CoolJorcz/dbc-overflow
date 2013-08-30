@@ -1,13 +1,18 @@
-<% @answer ||= locals[:answer] %>
-
-  <%= form_for [@question, @answer] do  |a| %>
-    <% if @answer.errors.any? %>
-      <ul>
-        <% @answer.errors.full_messages.each do |message| %>
-          <li style="color:red;"><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <%= a.text_area :answer_text, :placeholder => "Enter your answer" %>
-    <%= a.submit %>
+<% @answer ||= locals[:answer] %><%= form_for [@question, @answer] do  |a| %>
+  <% if @answer.errors.any? %>
+    <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+        <li style="color:red;">
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
+  <br>
+  <%= a.text_area :answer_text, :placeholder => "Enter your answer" %>
+  <br>
+  <br>
+  <%= a.submit %>
+  <br>
+  <br>
+<% end %>

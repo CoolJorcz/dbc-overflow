@@ -1,6 +1,8 @@
 <ul id= "answers">
   <% @question.answers.each do |answer| %>
-    <li><%= answer.answer_text %></li>
+    <li>
+      <%= answer.answer_text %>
+    </li>
   <% end %>
 </ul>
 

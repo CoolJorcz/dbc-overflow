@@ -2,12 +2,21 @@
   <% if @question.errors.any? %>
     <ul>
       <% @question.errors.full_messages.each do |message| %>
-        <li style="color:red;"><%= message %></li>
+        <li style="color:red;">
+          <%= message %>
+        </li>
       <% end %>
     </ul>
   <% end %>
+
   <%= q.text_field :title, :placeholder => "Enter a title" %>
+  <br>
+  <br>
   <%= q.text_area :question_text, :placeholder => "Enter your question" %>
+  <br>
+  <br>
   <%= q.text_field :tag_namez %>
+  <br>
+  <br>
   <%= q.submit %>
 <% end %>

@@ -1,14 +1,15 @@
-  <h2><%= @question.title %></h2><strong><%= @question.user.username if @question.user.present? %></strong>
-  <h3><%= @question.question_text %></h3>
-    <% @question.tags.each do |tag| %>
-      <li><%= tag.tagname %> </li>
-      <% end %>
+<h2><%= @question.title %></h2>
 
-  <%= render partial: "/answers/answer" %> 
+<strong><%= @question.user.username if @question.user.present? %></strong>
 
-  <%= link_to "Add Answer", '#', :id => "add-answer" %>
+<h3><%= @question.question_text %></h3>
 
-  <%= render partial: "/answers/answer" %> 
+<% @question.tags.each do |tag| %>
+  <li>
+    <%= tag.tagname %>
+  </li>
+<% end %>
 
-  <%= link_to "Add Answer", new_question_answer_url(@question), :id => "add-answer" %>
->>>>>>> finished micro-challenge
+<%= render partial: "/answers/answer" %>
+
+<%= link_to "Add Answer", '#', :id => "add-answer" %>
