@@ -5,7 +5,4 @@ describe Question do
   it { should validate_presence_of(:question_text) }
   it { should validate_presence_of(:title)}
   it { should have_many(:answers)}
-  it { should have_many(:comments).as(:commentable)}
-  it { should have_many(:votes).as(:votable)}
-
 end
