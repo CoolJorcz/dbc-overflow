@@ -21,5 +21,4 @@ $(function() {
 
     $('#add-answer').show();
   })
-
 });
