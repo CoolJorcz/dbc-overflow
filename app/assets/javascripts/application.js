@@ -15,33 +15,28 @@
 //= require_tree .
 
 
-$(document).ready(function (){
+$(function() {
+  $('#new-answer').hide();
 
   $('#add-answer').on("click", function(event){
     event.preventDefault();
+    $('#add-answer').hide();
+    $('#new-answer').show();
     var url =  $(this).attr('href');
 
-    $.get(url, function(server_response){
-      
-      $('#answers').append(server_response);
+    $('form').on("submit", function(event){
+      event.preventDefault();
 
-      $('form').on("submit", function(event){
-        event.preventDefault();
+      var url = $(this).attr('action');
+      var data = $('form').serialize();
 
-        var url = $(this).attr('action');
-        var data = $('form').serialize();
-
-        $.post(url, data, function(server_response){
-
-          $('#answers').append("<li>" +server_response.answer_text+"</li>")
-  
-        });
-        $('#new-answer').remove();
-        $('#add-answer').add();
+      $.post(url, data, function(server_response){
+        $('#answers').append("<li>" +server_response.answer_text+"</li>")
+        $('#new-answer').hide();
+        $('#new-answer #answer_answer_text').val("");
       });
-
     });
-
-    $(this).remove();
+    
+    $('#add-answer').show();
   });
 });

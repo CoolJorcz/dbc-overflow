@@ -1,3 +1,5 @@
+<% @answer ||= locals[:answer] %>
+
   <%= form_for [@question, @answer] do  |a| %>
     <% if @answer.errors.any? %>
       <ul>
@@ -9,4 +11,3 @@
     <%= a.text_area :answer_text, :placeholder => "Enter your answer" %>
     <%= a.submit %>
   <% end %>
-

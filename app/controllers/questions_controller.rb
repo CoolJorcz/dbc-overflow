@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
-
   def create
    @question= Question.new(params[:question])
    @question.user_id = session[:user_id]
