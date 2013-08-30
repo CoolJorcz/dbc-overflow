@@ -10,7 +10,6 @@ class Question < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many   :tags, through: :taggings
 
-
   validates_presence_of :question_text
   validates_presence_of :title
 

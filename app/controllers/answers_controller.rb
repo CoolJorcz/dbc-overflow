@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
     if @answer.save
       @question.answers << @answer
       if request.xhr?
-          render json: @answer
+        render json: @answer
       else
         redirect_to question_url(@question)
       end
