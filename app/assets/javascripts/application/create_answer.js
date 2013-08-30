@@ -6,7 +6,7 @@ $(function() {
     $('#add-answer').hide();
     $('#new-answer').show();
   });
-    
+
   $('#add-answer').on("submit", function(event){
     event.preventDefault();
 
