@@ -13,38 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
-
-$(document).ready(function (){
-
-  $('#add-answer').on("click", function(event){
-    event.preventDefault();
-    var url =  $(this).attr('href');
-
-    $.get(url, function(server_response){
-      
-      $('#answers').append(server_response);
-
-      $('form').on("submit", function(event){
-        event.preventDefault();
-
-        var url = $(this).attr('action');
-        var data = $('form').serialize();
-        var answer = $("textarea[name='answer[answer_text]']").val();
-        $('#answers').append(answer);
-
-        console.log(answer)
-        $.post(url, data, function(server_response){
-          $('#answers').append
-
-  
-        });
-
-        $('#new_answer').remove();
-      });
-
-    });
-
-    $(this).remove();
-  });
-});
